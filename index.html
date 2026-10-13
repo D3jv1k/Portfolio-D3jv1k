@@ -1,75 +1,279 @@
 <!doctype html>
 <html lang="cs">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Osobní portfolio Davida Pietroňe, studenta a začínajícího vývojáře.">
-  <title>David Pietroň — Student a vývojář</title>
+  <meta name="description" content="Temné fantasy portfolio Davida Pietroňe ve stylu pixel-art RPG.">
+  <meta name="theme-color" content="#0b0d12">
+  <title>David Pietroň — Ztracené království kódu</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="logo" href="#domu" aria-label="David Pietroň, úvod">DP<span>.</span></a>
+  <a class="skip-link" href="#main">Přeskočit na hru</a>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="David Pietroň, začátek">
+      <span class="brand-crest" aria-hidden="true">DP</span>
+      <span>KRONIKY KÓDU<small>osobní dobrodružství</small></span>
+    </a>
     <nav aria-label="Hlavní navigace">
-      <a href="#o-mne">O mně</a>
-      <a href="#dovednosti">Dovednosti</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#quest">Příběh</a>
+      <a href="#projects">Projekty</a>
+      <a href="#inventory">Výbava</a>
+      <a href="#guild">Cech</a>
     </nav>
+    <span class="save-status"><i aria-hidden="true"></i> ULOŽENO</span>
   </header>
 
-  <main>
-    <section class="hero" id="domu">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> Student · Začínající vývojář</p>
-        <h1>Ahoj, jsem<br><span>David Pietroň.</span></h1>
-        <p class="intro">Učím se programovat a tvořit weby. Baví mě zkoušet nové věci a postupně se zlepšovat.</p>
-        <a class="button" href="#kontakt">Napiš mi <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="hero-badge" aria-hidden="true">
-        <span>DP</span>
-        <i></i>
-      </div>
-    </section>
-
-    <section class="section" id="o-mne">
-      <p class="section-label">01 / O MNĚ</p>
-      <div>
-        <h2>Student s chutí<br>tvořit <span>na webu.</span></h2>
-        <p class="section-text">Jsem David a zajímám se o webový vývoj. Zatím se učím základy a tohle portfolio je jedním z míst, kde je můžu zkoušet v praxi.</p>
-      </div>
-    </section>
-
-    <section class="section skills-section" id="dovednosti">
-      <p class="section-label">02 / CO SE UČÍM</p>
-      <div>
-        <h2>Moje <span>dovednosti.</span></h2>
-        <p class="section-text">Technologie, se kterými se seznamuji:</p>
-        <ul class="skills">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section contact" id="kontakt">
-      <p class="section-label">03 / KONTAKT</p>
-      <div>
-        <h2>Ozvi se <span>mi.</span></h2>
-        <p class="section-text">Rád si přečtu tvou zprávu. E-mail sem doplním.</p>
-        <div class="contact-card">
-          <span class="mail-icon" aria-hidden="true">✉</span>
-          <span>Nápad, otázka nebo jen pozdrav?</span>
-          <span class="contact-arrow" aria-hidden="true">↗</span>
+  <main id="main">
+    <section class="game-screen" id="home" aria-labelledby="hero-title">
+      <div class="hud">
+        <div class="player-info">
+          <span class="player-avatar" aria-hidden="true">D</span>
+          <span><strong>DAVID</strong><small>UČEDNÍK KÓDU · ÚROVEŇ 01</small></span>
         </div>
+        <div class="xp-info">
+          <span>CESTA ZAČÍNÁ</span>
+          <div class="xp-track" role="img" aria-label="Zkušenosti: 20 ze 100">
+            <span></span>
+          </div>
+          <small>20 / 100 XP</small>
+        </div>
+        <span class="hud-rune" aria-hidden="true">✦</span>
+      </div>
+
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> NOVÁ VÝPRAVA ODEMČENA</p>
+          <h1 id="hero-title">Ztracené<br>království<br><span>kódu</span></h1>
+          <p class="intro">Jsem David — začínající vývojář na první výpravě. Učím se stavět weby a tohle je mapa mé cesty.</p>
+          <a class="pixel-button" href="#quest">Vstoupit do světa <span aria-hidden="true">▶</span></a>
+        </div>
+        <figure class="world-art">
+          <img src="assets/fantasy-realm.svg" alt="Pixelová krajina: hrad na kopci, měsíc a les v temné fantasy noci" width="640" height="480">
+          <figcaption><span>LOKACE 001</span> Údolí prvního řádku</figcaption>
+          <span class="world-coordinate" aria-hidden="true">X: 01 / Y: 08</span>
+        </figure>
+      </div>
+
+      <div class="screen-footer">
+        <span><i aria-hidden="true">◆</i> HLAVNÍ ÚKOL: NAUČIT SE TVOŘIT</span>
+        <a href="#quest">ZOBRAZIT MAPU <span aria-hidden="true">↓</span></a>
       </div>
     </section>
+
+    <section class="quest-area" id="quest" aria-labelledby="quest-title">
+      <div class="section-heading">
+        <span class="section-kicker">DENÍK VÝPRAVY · 01</span>
+        <h2 id="quest-title">Aktivní <span>úkol</span></h2>
+      </div>
+      <article class="quest-card">
+        <div class="quest-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M9 10h30v27H9zM15 17h18M15 23h12M15 29h8" />
+            <path d="m30 31 4 4 8-10" />
+          </svg>
+        </div>
+        <div class="quest-copy">
+          <p class="quest-type">HLAVNÍ PŘÍBĚH · PRÁVĚ PROBÍHÁ</p>
+          <h3>Porozumět řeči webu</h3>
+          <p>Objevuju, jak se skládají webové stránky, co jim dává styl a jak je postupně proměnit v něco vlastního.</p>
+          <blockquote>„Každý mistr byl kdysi začátečník.“</blockquote>
+        </div>
+        <span class="quest-reward"><span aria-hidden="true">✦</span> +100 ZKUŠENOSTÍ</span>
+      </article>
+      <details class="secret-room">
+        <summary><span aria-hidden="true">▣</span> Našel jsi tajnou místnost? Klikni a nahlédni dovnitř.</summary>
+        <p>Každý web začíná prázdnou stránkou. Tenhle už má svůj první svět — a další levely teprve přijdou.</p>
+      </details>
+    </section>
+
+    <section class="projects-area" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <span class="section-kicker">OBJEVENÉ LOKACE · 02</span>
+        <h2 id="projects-title">Moje <span>projekty</span></h2>
+        <p>Vyber lokaci a vydej se na další stránku.</p>
+      </div>
+      <div class="projects-grid">
+        <a class="project-card" href="https://d3jv1k.github.io/" target="_blank" rel="noopener noreferrer">
+          <span class="project-id">LOKACE 001</span>
+          <span class="project-preview portfolio-preview" aria-hidden="true">
+            <span class="preview-top"><i></i><i></i><i></i><b>DAVID.EXE</b></span>
+            <span class="preview-scene">
+              <span class="preview-copy"><i>OSOBNÍ WEB</i><b>Moje<br>portfolio</b><em></em><em></em></span>
+              <span class="preview-avatar">D</span>
+            </span>
+          </span>
+          <span class="project-info">
+            <span><strong>Osobní portfolio</strong><small>d3jv1k.github.io</small></span>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </span>
+          <span class="project-visit">VSTOUPIT DO LOKACE</span>
+        </a>
+
+        <a class="project-card" href="https://d3jv1k.github.io/projekt-web1/" target="_blank" rel="noopener noreferrer">
+          <span class="project-id">LOKACE 002</span>
+          <span class="project-preview web1-preview" aria-hidden="true">
+            <span class="preview-top"><i></i><i></i><i></i><b>PROJEKT_WEB1</b></span>
+            <span class="preview-scene">
+              <span class="preview-mountain"></span>
+              <span class="preview-sun"></span>
+              <span class="preview-code">&lt;web&gt;<br><b>01</b><br>&lt;/web&gt;</span>
+            </span>
+          </span>
+          <span class="project-info">
+            <span><strong>Projekt Web 1</strong><small>d3jv1k.github.io/projekt-web1</small></span>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+          </span>
+          <span class="project-visit">VSTOUPIT DO LOKACE</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="inventory-area" id="inventory" aria-labelledby="inventory-title">
+      <div class="section-heading">
+        <span class="section-kicker">INVENTÁŘ HRÁČE · 03</span>
+        <h2 id="inventory-title">Výbava <span>učedníka</span></h2>
+        <p>Základní nástroje, které právě poznávám.</p>
+      </div>
+      <div class="inventory-grid">
+        <article class="item-card">
+          <span class="item-number">ITEM 001</span>
+          <div class="item-art html-art" aria-hidden="true">&lt;/&gt;</div>
+          <h3>HTML</h3>
+          <p class="item-type">KOUZLO STRUKTURY</p>
+          <p>Stavím kostru stránky a dávám obsahu smysl.</p>
+          <span class="item-rarity"><i></i> ZÁKLADNÍ VÝBAVA</span>
+        </article>
+        <article class="item-card">
+          <span class="item-number">ITEM 002</span>
+          <div class="item-art css-art" aria-hidden="true">✳</div>
+          <h3>CSS</h3>
+          <p class="item-type">KOUZLO VZHLEDU</p>
+          <p>Oblékám stránku do barev, rozvržení a stylu.</p>
+          <span class="item-rarity"><i></i> ZÁKLADNÍ VÝBAVA</span>
+        </article>
+        <article class="item-card locked-card">
+          <span class="item-number">ITEM ???</span>
+          <div class="item-art locked-art" aria-hidden="true">?</div>
+          <h3>Další schopnost</h3>
+          <p class="item-type">ZAMČENO</p>
+          <p>Nová dovednost se objeví, až nastřádám další zkušenosti.</p>
+          <span class="item-rarity"><i></i> NEZNÁMÁ VÝBAVA</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="guild-area" id="guild" aria-labelledby="guild-title">
+      <div class="guild-emblem" aria-hidden="true">✧</div>
+      <div>
+        <span class="section-kicker">NÁBOR DO CECHU · 04</span>
+        <h2 id="guild-title">Každá výprava<br>je lepší <span>ve dvou.</span></h2>
+        <p>Máš radu, nápad nebo vlastní quest? Najdeš mě na GitHubu.</p>
+        <a class="pixel-button" href="https://github.com/D3jv1k" target="_blank" rel="noopener noreferrer">
+          <img class="contact-avatar" src="https://github.com/D3jv1k.png" alt="" width="32" height="32" loading="lazy">
+          Najít hráče Davida <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <span class="guild-stamp" aria-hidden="true">PŘIDEJ SE<br>K VÝPRAVĚ</span>
+    </section>
+
+    <aside class="validator-panel" id="validace" aria-labelledby="validation-title">
+      <div>
+        <span class="section-kicker">KONTROLA HRY</span>
+        <h2 id="validation-title">Validátor W3C</h2>
+        <p id="validation-status" role="status" aria-live="polite">Ověř HTML nebo CSS. Pokud stránka není veřejná, zadáš její adresu.</p>
+      </div>
+      <div class="validator-actions">
+        <a class="pixel-button small-button" id="validate-html" href="https://validator.w3.org/nu/" target="_blank" rel="noopener noreferrer">Ověřit HTML <span aria-hidden="true">↗</span></a>
+        <a class="pixel-button small-button" id="validate-css" href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">Ověřit CSS <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
   </main>
 
   <footer class="site-footer">
-    <a class="logo" href="#domu">DP<span>.</span></a>
-    <p>© 2026 David Pietroň</p>
-    <a href="#domu">Zpět nahoru ↑</a>
+    <span>DAVID PIETROŇ <i aria-hidden="true">✦</i> 2026</span>
+    <span>ULOŽENO V ÚDOLÍ PRVNÍHO ŘÁDKU</span>
+    <a href="#home">ZPĚT NA ZAČÁTEK ↑</a>
   </footer>
+
+  <script>
+    const validationStatus = document.querySelector("#validation-status");
+    const htmlLink = document.querySelector("#validate-html");
+    const cssLink = document.querySelector("#validate-css");
+    const currentUrl = new URL(window.location.href);
+    const isPublicUrl = ["http:", "https:"].includes(currentUrl.protocol)
+      && !["localhost", "127.0.0.1", "::1"].includes(currentUrl.hostname);
+
+    function getPageUrl() {
+      if (isPublicUrl) {
+        return new URL(currentUrl.href);
+      }
+
+      const address = window.prompt("Zadej veřejnou adresu zveřejněného webu (včetně https://):");
+      if (!address) {
+        return null;
+      }
+
+      try {
+        const pageUrl = new URL(address);
+        if (!["http:", "https:"].includes(pageUrl.protocol)
+          || ["localhost", "127.0.0.1", "::1"].includes(pageUrl.hostname)) {
+          throw new TypeError("Adresa není veřejná.");
+        }
+        return pageUrl;
+      } catch {
+        validationStatus.textContent = "Zadej platnou veřejnou adresu začínající https:// nebo http://.";
+        return null;
+      }
+    }
+
+    function openValidator(type) {
+      const pageUrl = getPageUrl();
+      if (!pageUrl) {
+        return;
+      }
+
+      pageUrl.hash = "";
+      const validatorUrl = type === "html"
+        ? new URL("https://validator.w3.org/nu/")
+        : new URL("https://jigsaw.w3.org/css-validator/");
+
+      if (type === "html") {
+        validatorUrl.searchParams.set("doc", pageUrl.href);
+      } else {
+        validatorUrl.searchParams.set("uri", new URL("style.css", pageUrl).href);
+        validatorUrl.searchParams.set("profile", "css3");
+      }
+
+      window.open(validatorUrl.href, "_blank", "noopener,noreferrer");
+    }
+
+    if (isPublicUrl) {
+      const pageUrl = new URL(currentUrl.href);
+      pageUrl.hash = "";
+
+      const htmlValidatorUrl = new URL("https://validator.w3.org/nu/");
+      htmlValidatorUrl.searchParams.set("doc", pageUrl.href);
+      htmlLink.href = htmlValidatorUrl.href;
+
+      const cssValidatorUrl = new URL("https://jigsaw.w3.org/css-validator/");
+      cssValidatorUrl.searchParams.set("uri", new URL("style.css", pageUrl).href);
+      cssValidatorUrl.searchParams.set("profile", "css3");
+      cssLink.href = cssValidatorUrl.href;
+    } else {
+      htmlLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        openValidator("html");
+      });
+      cssLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        openValidator("css");
+      });
+      validationStatus.textContent = "Web zatím není veřejný. Po zveřejnění ho můžeš poslat do validátoru.";
+    }
+  </script>
 </body>
+
 </html>
