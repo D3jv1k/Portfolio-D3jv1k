@@ -179,17 +179,6 @@
       <span class="guild-stamp" aria-hidden="true">PŘIDEJ SE<br>K VÝPRAVĚ</span>
     </section>
 
-    <aside class="validator-panel" id="validace" aria-labelledby="validation-title">
-      <div>
-        <span class="section-kicker">KONTROLA HRY</span>
-        <h2 id="validation-title">Validátor W3C</h2>
-        <p id="validation-status" role="status" aria-live="polite">Ověř HTML nebo CSS. Pokud stránka není veřejná, zadáš její adresu.</p>
-      </div>
-      <div class="validator-actions">
-        <a class="pixel-button small-button" id="validate-html" href="https://validator.w3.org/nu/" target="_blank" rel="noopener noreferrer">Ověřit HTML <span aria-hidden="true">↗</span></a>
-        <a class="pixel-button small-button" id="validate-css" href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">Ověřit CSS <span aria-hidden="true">↗</span></a>
-      </div>
-    </aside>
   </main>
 
   <footer class="site-footer">
@@ -198,82 +187,6 @@
     <a href="#home">ZPĚT NA ZAČÁTEK ↑</a>
   </footer>
 
-  <script>
-    const validationStatus = document.querySelector("#validation-status");
-    const htmlLink = document.querySelector("#validate-html");
-    const cssLink = document.querySelector("#validate-css");
-    const currentUrl = new URL(window.location.href);
-    const isPublicUrl = ["http:", "https:"].includes(currentUrl.protocol)
-      && !["localhost", "127.0.0.1", "::1"].includes(currentUrl.hostname);
-
-    function getPageUrl() {
-      if (isPublicUrl) {
-        return new URL(currentUrl.href);
-      }
-
-      const address = window.prompt("Zadej veřejnou adresu zveřejněného webu (včetně https://):");
-      if (!address) {
-        return null;
-      }
-
-      try {
-        const pageUrl = new URL(address);
-        if (!["http:", "https:"].includes(pageUrl.protocol)
-          || ["localhost", "127.0.0.1", "::1"].includes(pageUrl.hostname)) {
-          throw new TypeError("Adresa není veřejná.");
-        }
-        return pageUrl;
-      } catch {
-        validationStatus.textContent = "Zadej platnou veřejnou adresu začínající https:// nebo http://.";
-        return null;
-      }
-    }
-
-    function openValidator(type) {
-      const pageUrl = getPageUrl();
-      if (!pageUrl) {
-        return;
-      }
-
-      pageUrl.hash = "";
-      const validatorUrl = type === "html"
-        ? new URL("https://validator.w3.org/nu/")
-        : new URL("https://jigsaw.w3.org/css-validator/");
-
-      if (type === "html") {
-        validatorUrl.searchParams.set("doc", pageUrl.href);
-      } else {
-        validatorUrl.searchParams.set("uri", new URL("style.css", pageUrl).href);
-        validatorUrl.searchParams.set("profile", "css3");
-      }
-
-      window.open(validatorUrl.href, "_blank", "noopener,noreferrer");
-    }
-
-    if (isPublicUrl) {
-      const pageUrl = new URL(currentUrl.href);
-      pageUrl.hash = "";
-
-      const htmlValidatorUrl = new URL("https://validator.w3.org/nu/");
-      htmlValidatorUrl.searchParams.set("doc", pageUrl.href);
-      htmlLink.href = htmlValidatorUrl.href;
-
-      const cssValidatorUrl = new URL("https://jigsaw.w3.org/css-validator/");
-      cssValidatorUrl.searchParams.set("uri", new URL("style.css", pageUrl).href);
-      cssValidatorUrl.searchParams.set("profile", "css3");
-      cssLink.href = cssValidatorUrl.href;
-    } else {
-      htmlLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        openValidator("html");
-      });
-      cssLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        openValidator("css");
-      });
-      validationStatus.textContent = "Web zatím není veřejný. Po zveřejnění ho můžeš poslat do validátoru.";
-    }
-  </script>
 </body>
 
 </html>
