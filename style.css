@@ -980,6 +980,37 @@ h3 {
   font-style: normal;
 }
 
+.site-footer .validation-link {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  color: var(--green);
+}
+
+.validation-link svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.site-footer .validation-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.site-footer .validation-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 @keyframes rune-glow {
   0%,
   100% {
